@@ -12,19 +12,40 @@ namespace Domain.Models
     {
         [Key]
         public int ReportId { get; set; }
-        public DateTime Date { get; set; }
-        public TimeSpan Time { get; set; }
-        public string MedicationName { get; set; }
-        public string Dosage { get; set; }
-        public string Times { get; set; }
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        [MaxLength(200)]
+        public string Diagnosis { get; set; } = string.Empty;
+
+        [MaxLength(2000)]
+        public string Notes { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string MedicationName { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string Dosage { get; set; } = string.Empty;
+
+        public int? Frequency { get; set; }
+
+        [MaxLength(100)]
+        public string Duration { get; set; } = string.Empty;
+
+        [MaxLength(500)]
+        public string Instructions { get; set; } = string.Empty;
 
         //fk
+        [Required]
         public int PatientId { get; set; }
         [ForeignKey("PatientId")]
-        public Patient Patient { get; set; }
+        public Patient Patient { get; set; } = null!;
 
+        
+        [Required]
         public int DoctorId { get; set; }
         [ForeignKey("DoctorId")]
-        public Doctor Doctor { get; set; }
+        public Doctor Doctor { get; set; } = null!;
     }
-}
+    }

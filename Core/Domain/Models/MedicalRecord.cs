@@ -12,13 +12,21 @@ namespace Domain.Models
     {
         [Key]
         public int RecId { get; set; }
-        public string CurrentMedicine { get; set; }
-        public string ChronicDisease { get; set; }
+
+        [MaxLength(1000)]
+        public string CurrentMedicine { get; set; } = string.Empty;
+
+        [MaxLength(1000)]
+        public string ChronicDisease { get; set; } = string.Empty;
+
+        [MaxLength(1000)]
+        public string PreviousSurgeries { get; set; } = string.Empty;
+
 
         //fk
+        [Required]
         public int PatientId { get; set; }
-
         [ForeignKey("PatientId")]
-        public Patient Patient { get; set; }
+        public Patient Patient { get; set; } = null!;
     }
 }

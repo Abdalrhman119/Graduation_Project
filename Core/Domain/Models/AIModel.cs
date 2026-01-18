@@ -11,8 +11,10 @@ namespace Domain.Models
     {
         [Key]
         public int ModelId { get; set; }
-        public string ModelName { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string ModelName { get; set; } = string.Empty;
 
-        public ICollection<AIResult> Results { get; set; }
+        public ICollection<AIResult> Results { get; set; } = null!;
     }
 }

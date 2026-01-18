@@ -16,10 +16,13 @@ namespace Domain.Models
         //FK
         public int PatientId { get; set; }
         [ForeignKey("PatientId")]
-        public Patient Patient { get; set; }
+        public Patient Patient { get; set; } = null!;
 
         public int DoctorId { get; set; }
         [ForeignKey("DoctorId")]
-        public Doctor Doctor { get; set; }
+        public Doctor Doctor { get; set; } = null!;
+
+        public ICollection<Message> Messages { get; set; } = null!;
+
     }
 }
