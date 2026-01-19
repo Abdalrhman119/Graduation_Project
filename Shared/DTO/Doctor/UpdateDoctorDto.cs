@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.DTO.Patient
+namespace Shared.DTO.Doctor
 {
-    public class UpdatePatientDto
+    public class UpdateDoctorDto
     {
         [Required]
-        public int PatientId { get; set; }
+        public int DoctorId { get; set; }
 
         [MaxLength(50)]
         public string? FirstName { get; set; }
@@ -31,18 +31,17 @@ namespace Shared.DTO.Patient
         [MaxLength(20)]
         public string? PhoneNum { get; set; }
 
-        [Range(0, 500, ErrorMessage = "Weight must be between 0 and 500 kg")]
-        public double Weight { get; set; }
-
-        [Range(0, 300, ErrorMessage = "Height must be between 0 and 300 cm")]
-        public double Height { get; set; }
-
-        [MaxLength(5)]
-        public string? BloodType { get; set; }
-
-        [MaxLength(500)]
-        public string? Allergies { get; set; }
+        [Range(0, 70, ErrorMessage = "Years of experience must be between 0 and 70")]
+        public int? YearsOfExperience { get; set; }
 
         public string? ProfilePhoto { get; set; }
+
+        [MaxLength(1000)]
+        public string? About { get; set; }
+
+        [MaxLength(100)]
+        public string? Specialization { get; set; }
+
+        public bool? IsAvailable { get; set; }
     }
 }

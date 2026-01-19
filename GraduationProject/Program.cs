@@ -12,6 +12,7 @@ using ServicesAbstraction;
 using Shared.Authentication;
 using System.Text;
 using Presentation.Controllers;
+using AutoMapper;
 
 namespace GraduationProject
 {
@@ -60,7 +61,6 @@ namespace GraduationProject
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<ServicesAbstraction.IAuthenticationService, Services.AuthenticationService>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
             builder.Services.AddControllers()
                 .AddApplicationPart(typeof(AuthenticationController).Assembly);
 
@@ -69,7 +69,7 @@ namespace GraduationProject
             builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "GastroAI API", Version = "v1" });
-
+                
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",

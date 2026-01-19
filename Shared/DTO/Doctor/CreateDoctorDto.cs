@@ -5,24 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.DTO.Patient
+namespace Shared.DTO.Doctor
 {
-    public class CreatePatientDto
+    public class CreateDoctorDto
     {
         [Required(ErrorMessage = "First name is required")]
         [MaxLength(50)]
         public string FirstName { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "Last name is required")]
         [MaxLength(50)]
         public string LastName { get; set; } = string.Empty;
-       
+
         [Required(ErrorMessage = "Birth date is required")]
         public DateOnly BirthDate { get; set; }
-        public int Age { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
         [RegularExpression("^(Male|Female)$", ErrorMessage = "Gender must be Male or Female")]
         public string Gender { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email format")]
         [MaxLength(100)]
@@ -33,17 +34,19 @@ namespace Shared.DTO.Patient
         [MaxLength(20)]
         public string PhoneNum { get; set; } = string.Empty;
 
-        [Range(0, 500, ErrorMessage = "Weight must be between 0 and 500 kg")]
-        public double Weight { get; set; }
+        [Range(0, 70, ErrorMessage = "Years of experience must be between 0 and 70")]
+        public int YearsOfExperience { get; set; }
 
-        [Range(0, 300, ErrorMessage = "Height must be between 0 and 300 cm")]
-        public double Height { get; set; }
-        
-        [MaxLength(5)]
-        public string BloodType { get; set; } = string.Empty;
-        
-        [MaxLength(500)]
-        public string Allergies { get; set; } = string.Empty;
-        public string ProfilePhoto { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Licence number is required")]
+        [MaxLength(50)]
+        public string LicenceNum { get; set; } = string.Empty;
+
+        public string? ProfilePhoto { get; set; }
+
+        [MaxLength(1000)]
+        public string? About { get; set; }
+
+        [MaxLength(100)]
+        public string? Specialization { get; set; }
     }
 }
