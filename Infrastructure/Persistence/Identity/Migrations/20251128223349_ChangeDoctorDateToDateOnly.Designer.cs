@@ -11,7 +11,7 @@ using Persistence.Data;
 
 namespace Persistence.Identity.Migrations
 {
-    [DbContext(typeof(StoreDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20251128223349_ChangeDoctorDateToDateOnly")]
     partial class ChangeDoctorDateToDateOnly
     {

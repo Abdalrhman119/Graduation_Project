@@ -11,7 +11,7 @@ namespace Persistence.Repositaries
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly StoreDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public IGenericRepository<Patient> Patients { get; private set; }
         public IGenericRepository<Doctor> Doctors { get; private set; }
@@ -19,7 +19,7 @@ namespace Persistence.Repositaries
         public IGenericRepository<Report> Reports { get; private set; }
         public IGenericRepository<Chat> Chats { get; private set; }
 
-        public UnitOfWork(StoreDbContext context)
+        public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
 

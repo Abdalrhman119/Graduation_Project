@@ -13,7 +13,7 @@ using Shared.Authentication;
 using System.Text;
 using Presentation.Controllers;
 
-namespace ECommerce_Web
+namespace GraduationProject
 {
     public class Program
     {
@@ -21,7 +21,7 @@ namespace ECommerce_Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<StoreDbContext>(options =>
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -30,7 +30,7 @@ namespace ECommerce_Web
                 options.Password.RequiredLength = 6;
                 options.User.RequireUniqueEmail = true;
             })
-            .AddEntityFrameworkStores<StoreDbContext>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
             builder.Services.Configure<JWTOptions>(builder.Configuration.GetSection("JWT"));

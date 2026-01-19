@@ -11,7 +11,7 @@ using Persistence.Data;
 
 namespace Persistence.Data.Migtration
 {
-    [DbContext(typeof(StoreDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20251128162433_InitialCreate")]
     partial class InitialCreate
     {
