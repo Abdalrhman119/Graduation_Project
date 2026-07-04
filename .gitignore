@@ -1,0 +1,24 @@
+# Node modules and build files
+Frontend/node_modules/
+Frontend/dist/
+
+# Python / AI datasets and models
+AI/Dataset/
+AI/best_densenet_swin_model.pth
+AI/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Visual Studio files
+Graduation_Project/.vs/
+Graduation_Project/.git_backup/
+Graduation_Project/*/bin/
+Graduation_Project/*/obj/
+Graduation_Project/bin/
+Graduation_Project/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
